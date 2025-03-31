@@ -19,13 +19,13 @@ public class playerController : MonoBehaviour
 
     private bool _isGrounded = false;
 
-     private Transform groundCheck;
+    private Transform groundCheck;
 
     private void Update()
     {
         //Rotation
         float rotateInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
-        transform.Rotate(Vector3.forward, - rotateInput * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.forward, -rotateInput * rotationSpeed * Time.deltaTime);
 
         //Side to Side movement
         _moveDir.x = Input.GetAxisRaw("Horizontal");
@@ -42,7 +42,7 @@ public class playerController : MonoBehaviour
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
             Debug.Log("I'm jumping");
         }
-}
+    }
 
 
     private void FixedUpdate()
@@ -59,16 +59,22 @@ public class playerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.tag == "Platform" ||
+            collision.gameObject.tag == "Red" ||
+            collision.gameObject.tag == "Yellow" ||
+            collision.gameObject.tag == "Blue")
         {
             _isGrounded = true;
-            Debug.Log("Im Grounded!");
+            Debug.Log("I'm Grounded!");
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.tag == "Platform" ||
+            collision.gameObject.tag == "Red" ||
+            collision.gameObject.tag == "Yellow" ||
+            collision.gameObject.tag == "Blue")
         {
             _isGrounded = false;
             Debug.Log("I'm Flying!");
