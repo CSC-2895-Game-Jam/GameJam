@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 293307104}
   m_Layer: 0
   m_Name: Platform_Red
-  m_TagString: Platform
+  m_TagString: Red
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -461,7 +461,7 @@ GameObject:
   - component: {fileID: 1648175807}
   m_Layer: 0
   m_Name: Platform_Blue
-  m_TagString: Platform
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 1806200890}
   m_Layer: 0
   m_Name: Platform_Yellow
-  m_TagString: Platform
+  m_TagString: Yellow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
