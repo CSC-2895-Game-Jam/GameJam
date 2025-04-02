@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class playerController : MonoBehaviour
 {
@@ -17,18 +18,21 @@ public class playerController : MonoBehaviour
     private Vector2 _moveDir = Vector2.zero;
 
 
-    private bool _isGrounded = false;
+    private bool _isGrounded = true;
 
     private Transform groundCheck;
 
     private void Update()
     {
         //Rotation
-        float rotateInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
-        transform.Rotate(Vector3.forward, -rotateInput * rotationSpeed * Time.deltaTime);
+        float HorizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
+
+        if(!_isGrounded){
+            transform.Rotate(Vector3.forward, -HorizontalInput * rotationSpeed * Time.deltaTime);
+        }
 
         //Side to Side movement
-        _moveDir.x = Input.GetAxisRaw("Horizontal");
+        _moveDir.x = HorizontalInput;
 
         //Sprint check
         _isSprinting = Input.GetKey(KeyCode.LeftShift);
@@ -57,28 +61,7 @@ public class playerController : MonoBehaviour
         _rb.velocity = new Vector2(_moveDir.normalized.x * finalMoveSpeed, _rb.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" ||
-            collision.gameObject.tag == "Red" ||
-            collision.gameObject.tag == "Yellow" ||
-            collision.gameObject.tag == "Blue")
-        {
-            _isGrounded = true;
-            Debug.Log("I'm Grounded!");
-        }
+    public void setGrounded(bool grounded){
+        _isGrounded = grounded;
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" ||
-            collision.gameObject.tag == "Red" ||
-            collision.gameObject.tag == "Yellow" ||
-            collision.gameObject.tag == "Blue")
-        {
-            _isGrounded = false;
-            Debug.Log("I'm Flying!");
-        }
-    }
-
 }

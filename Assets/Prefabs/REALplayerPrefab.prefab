@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5009305455920346128}
   - component: {fileID: 3835102812580681507}
   - component: {fileID: 6010409466332854394}
+  - component: {fileID: 8600397991963337960}
   m_Layer: 0
   m_Name: Right - Red
   m_TagString: Untagged
@@ -94,6 +95,19 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &8600397991963337960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226059407555931409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fcb30d8e105e0a78e60de1993945b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: Red
 --- !u!1 &2928346509011789225
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,7 +120,7 @@ GameObject:
   - component: {fileID: 64520487759158994}
   - component: {fileID: 2393827503397034445}
   - component: {fileID: 4651673740300746322}
-  - component: {fileID: 6977492465610285451}
+  - component: {fileID: 913454416238281443}
   m_Layer: 0
   m_Name: REALplayerPrefab
   m_TagString: Player
@@ -196,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6af5fd92418da41ac5d8a6ac305100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
+  rotationSpeed: 300
   _rb: {fileID: 4651673740300746322}
-  _moveSpeed: 2
+  _moveSpeed: 5
   _jumpForce: 10
 --- !u!50 &4651673740300746322
 Rigidbody2D:
@@ -227,7 +241,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &6977492465610285451
+--- !u!60 &913454416238281443
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,7 +270,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -538,6 +552,7 @@ GameObject:
   - component: {fileID: 4396026644711561955}
   - component: {fileID: 6491050592047586328}
   - component: {fileID: 2949477104332506550}
+  - component: {fileID: 4399316342969395180}
   m_Layer: 0
   m_Name: Bottom - Blue
   m_TagString: Untagged
@@ -621,6 +636,19 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &4399316342969395180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750862677007612487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fcb30d8e105e0a78e60de1993945b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: Blue
 --- !u!1 &8123494236463290070
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,6 +660,7 @@ GameObject:
   - component: {fileID: 2759895551949681130}
   - component: {fileID: 6096968116941373712}
   - component: {fileID: 3985401532366218791}
+  - component: {fileID: 2370327247255074039}
   m_Layer: 0
   m_Name: Left-Yellow
   m_TagString: Untagged
@@ -715,3 +744,16 @@ PlatformEffector2D:
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
+--- !u!114 &2370327247255074039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8123494236463290070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39fcb30d8e105e0a78e60de1993945b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: Yellow
