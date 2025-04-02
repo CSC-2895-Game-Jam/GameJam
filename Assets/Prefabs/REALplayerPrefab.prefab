@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee6af5fd92418da41ac5d8a6ac305100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 200
+  rotationSpeed: 300
   _rb: {fileID: 4651673740300746322}
-  _moveSpeed: 2
+  _moveSpeed: 5
   _jumpForce: 10
 --- !u!50 &4651673740300746322
 Rigidbody2D:
