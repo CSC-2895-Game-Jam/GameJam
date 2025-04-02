@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour
     private Vector2 _moveDir = Vector2.zero;
 
 
-    private bool _isGrounded = false;
+    private bool _isGrounded = true;
 
     private Transform groundCheck;
 

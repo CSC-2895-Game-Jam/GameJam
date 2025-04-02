@@ -19,7 +19,9 @@ public class sideCollider : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        gameObject.transform.parent.GetComponent<playerController>().setGrounded(false);
+        if (collision.gameObject.tag == color || collision.gameObject.tag == "Platform" ){
+            gameObject.transform.parent.GetComponent<playerController>().setGrounded(false);
+        }
     }
 
 }
