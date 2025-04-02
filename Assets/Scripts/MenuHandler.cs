@@ -26,4 +26,18 @@ public class MenuHandler : MonoBehaviour
     public void goToGame(){
         UnityEngine.SceneManagement.SceneManager.LoadScene("Framework");
     }
+
+
+public void endGame(){
+    Application.Quit();
+
+
+}
+
+
+public void resetGameScene(){
+    UnityEngine.SceneManagement.SceneManager.LoadScene( SceneManager.GetActiveScene().name );
+}
+    
+
 }
