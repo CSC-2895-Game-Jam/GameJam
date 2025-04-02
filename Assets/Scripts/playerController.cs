@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class playerController : MonoBehaviour
 {
@@ -57,28 +58,7 @@ public class playerController : MonoBehaviour
         _rb.velocity = new Vector2(_moveDir.normalized.x * finalMoveSpeed, _rb.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" ||
-            collision.gameObject.tag == "Red" ||
-            collision.gameObject.tag == "Yellow" ||
-            collision.gameObject.tag == "Blue")
-        {
-            _isGrounded = true;
-            Debug.Log("I'm Grounded!");
-        }
+    public void setGrounded(bool grounded){
+        _isGrounded = grounded;
     }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Platform" ||
-            collision.gameObject.tag == "Red" ||
-            collision.gameObject.tag == "Yellow" ||
-            collision.gameObject.tag == "Blue")
-        {
-            _isGrounded = false;
-            Debug.Log("I'm Flying!");
-        }
-    }
-
 }
