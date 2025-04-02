@@ -25,11 +25,14 @@ public class playerController : MonoBehaviour
     private void Update()
     {
         //Rotation
-        float rotateInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
-        transform.Rotate(Vector3.forward, -rotateInput * rotationSpeed * Time.deltaTime);
+        float HorizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
+
+        if(!_isGrounded){
+            transform.Rotate(Vector3.forward, -HorizontalInput * rotationSpeed * Time.deltaTime);
+        }
 
         //Side to Side movement
-        _moveDir.x = Input.GetAxisRaw("Horizontal");
+        _moveDir.x = HorizontalInput;
 
         //Sprint check
         _isSprinting = Input.GetKey(KeyCode.LeftShift);
