@@ -8,12 +8,10 @@ using UnityEngine;
 public class sideCollider : MonoBehaviour
 {
     public String color;
-    private gameController gc;
     private playerController player;
 
     void Start()
     {
-        gc = FindObjectOfType<gameController>();
         player = gameObject.transform.parent.GetComponent<playerController>();
     }
 
@@ -22,23 +20,9 @@ public class sideCollider : MonoBehaviour
     {
         if (collision.gameObject.tag != color && collision.gameObject.tag != "Platform")
         {
-
-
             // Player falls through
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
             player.setAllowJump(false);
-
-
-            // Teleport player back to last checkpoint
-            if (gc != null)
-            {
-                gc.telportToLastCheckpoint();
-                Debug.Log("teleporting...!");
-            }
-            else
-            {
-                Debug.Log("gc not found!");
-            }
 
         }
         if ((collision.gameObject.tag == color || collision.gameObject.tag == "Platform") && transform.up.y < 0)

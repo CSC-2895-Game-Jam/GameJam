@@ -10,12 +10,14 @@ public class gameController : MonoBehaviour
     private Transform checkpointTransform;
     private GameObject checkpoint;
     private GameObject player;
+    private Rigidbody2D playerRB;
 
     public int currentCheckpoint = 0;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
         playerTransform = player.transform;
+        playerRB = player.GetComponent<Rigidbody2D>();
         checkpoint = GameObject.FindGameObjectWithTag(spawnTag);
         checkpointTransform = checkpoint.transform;
     }
@@ -51,6 +53,7 @@ public class gameController : MonoBehaviour
         if (playerTransform != null && checkpointTransform != null)
         {
             playerTransform.position = checkpointTransform.position;
+            playerRB.velocity = Vector2.zero;
             Debug.Log("Trying to teleport");
 
         }

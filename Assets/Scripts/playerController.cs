@@ -63,4 +63,22 @@ public class playerController : MonoBehaviour
     public void setAllowJump(bool jump){
         allowJump = jump;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        gameController gc = FindObjectOfType<gameController>();
+        
+        if(collision.gameObject.tag == "DeathZone"){
+            // Teleport player back to last checkpoint
+            if (gc != null)
+            {
+                gc.telportToLastCheckpoint();
+                Debug.Log("teleporting...!");
+            }
+            else
+            {
+                Debug.Log("gc not found!");
+            }
+        }
+    }
 }

@@ -10,6 +10,7 @@ TagManager:
   - Yellow
   - checkpoint
   - Spawn
+  - DeathZone
   layers:
   - Default
   - TransparentFX
