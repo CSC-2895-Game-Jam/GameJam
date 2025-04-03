@@ -64,7 +64,5 @@ public class gameController : MonoBehaviour
             Debug.Log("Checkpoint not found!");
 
         }
-
-
     }
 }

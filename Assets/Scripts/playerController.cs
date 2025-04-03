@@ -18,16 +18,16 @@ public class playerController : MonoBehaviour
     private Vector2 _moveDir = Vector2.zero;
 
 
-    private bool _isGrounded = true;
-
-    private Transform groundCheck;
+    private bool allowJump = true;
 
     private void Update()
     {
         //Rotation
         float HorizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
 
-        if(!_isGrounded){
+        if (!allowJump)
+        {
+            _rb.angularVelocity = 0f; // Reset angular velocity to ensure consistent rotation speed
             transform.Rotate(Vector3.forward, -HorizontalInput * rotationSpeed * Time.deltaTime);
         }
 
@@ -41,10 +41,9 @@ public class playerController : MonoBehaviour
 
         bool jumpInput = Input.GetKeyDown(KeyCode.Space);
 
-        if (jumpInput && _isGrounded)
+        if (jumpInput && allowJump)
         {
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
-            Debug.Log("I'm jumping");
         }
     }
 
@@ -61,7 +60,7 @@ public class playerController : MonoBehaviour
         _rb.velocity = new Vector2(_moveDir.normalized.x * finalMoveSpeed, _rb.velocity.y);
     }
 
-    public void setGrounded(bool grounded){
-        _isGrounded = grounded;
+    public void setAllowJump(bool jump){
+        allowJump = jump;
     }
 }

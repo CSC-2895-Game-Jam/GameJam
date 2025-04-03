@@ -9,23 +9,27 @@ public class sideCollider : MonoBehaviour
 {
     public String color;
     private gameController gc;
+    private playerController player;
 
     void Start()
     {
-         gc = FindObjectOfType<gameController>();
-        
+        gc = FindObjectOfType<gameController>();
+        player = gameObject.transform.parent.GetComponent<playerController>();
     }
-    
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != color && collision.gameObject.tag != "Platform" )
+        if (collision.gameObject.tag != color && collision.gameObject.tag != "Platform")
         {
-            //Player falls through
+
+
+            // Player falls through
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
+            player.setAllowJump(false);
 
 
-            //Teleport player back to last checkpoint
+            // Teleport player back to last checkpoint
             if (gc != null)
             {
                 gc.telportToLastCheckpoint();
@@ -36,20 +40,19 @@ public class sideCollider : MonoBehaviour
                 Debug.Log("gc not found!");
             }
 
+        }
+        if ((collision.gameObject.tag == color || collision.gameObject.tag == "Platform") && transform.up.y < 0)
+        {
 
-        } else {
-            gameObject.transform.parent.GetComponent<playerController>().setGrounded(true);
-
-
+            player.setAllowJump(true);
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == color || collision.gameObject.tag == "Platform" ){
-            gameObject.transform.parent.GetComponent<playerController>().setGrounded(false);
-
-
+        if (collision.gameObject.tag == color || collision.gameObject.tag == "Platform")
+        {
+            player.setAllowJump(false);
         }
     }
 
