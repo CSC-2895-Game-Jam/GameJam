@@ -8,6 +8,8 @@ TagManager:
   - Blue
   - Red
   - Yellow
+  - checkpoint
+  - Spawn
   layers:
   - Default
   - TransparentFX
