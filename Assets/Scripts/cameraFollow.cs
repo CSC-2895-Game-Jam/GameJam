@@ -24,7 +24,7 @@ public class cameraFollow : MonoBehaviour
     {
         if (player != null)
         {
-            camera.transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
+            camera.transform.position = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
         }
 
     }
