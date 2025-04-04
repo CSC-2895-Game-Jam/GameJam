@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LaythScene.unity
     guid: 00aaaf801daf071408d66491594e3976
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 276bb740a6f290e418d0e3410bb36441
   m_configObjects: {}
