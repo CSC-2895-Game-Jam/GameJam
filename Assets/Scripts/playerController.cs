@@ -79,6 +79,24 @@ public class playerController : MonoBehaviour
             {
                 Debug.Log("gc not found!");
             }
+            
         }
+
+        if(collision.gameObject.tag == "Obstacle"){
+            // Teleport player back to last checkpoint
+            if (gc != null)
+            {
+                gc.telportToLastCheckpoint();
+                Debug.Log("teleporting...!");
+            }
+            else
+            {
+                Debug.Log("gc not found!");
+            }
+            
+        }
+
+
+        
     }
 }
