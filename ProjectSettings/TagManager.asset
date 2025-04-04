@@ -11,6 +11,7 @@ TagManager:
   - checkpoint
   - Spawn
   - DeathZone
+  - Obstacle
   layers:
   - Default
   - TransparentFX
