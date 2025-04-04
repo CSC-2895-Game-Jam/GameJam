@@ -34,11 +34,14 @@ public class checkpoint : MonoBehaviour
 
     public Quaternion getNewPlayerRotation(){
         float rot = 0;
-
-        if(platformColor == "Blue") rot = 0;
-        else if(platformColor == "Red") rot = -120;
-        else if(platformColor == "Yellow") rot = 120;
-        else Debug.LogWarning("please set color for checkpoint to rotate player to.");
+        string color = platformColor.ToLower();
+        if(color == "blue") rot = 0;
+        else if(color == "red") rot = -120;
+        else if(color == "yellow") rot = 120;
+        else {
+            Debug.LogWarning("please set color for checkpoint to rotate player to.");
+            return FindObjectOfType<playerController>().gameObject.transform.rotation;
+        }
 
         return Quaternion.Euler(0, 0, rot);
     }
