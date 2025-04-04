@@ -147,7 +147,7 @@ Transform:
   m_GameObject: {fileID: 282708388}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.75, y: 3.13, z: -0.010435208}
+  m_LocalPosition: {x: 5.33, y: 1.16, z: -0.010435208}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -381,7 +381,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 293307103}
   m_BodyType: 1
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -411,13 +411,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: REALplayerPrefab
       objectReference: {fileID: 0}
+    - target: {fileID: 2928346509011789225, guid: d5b0a8dbb68f3955795ba305cbe94b48, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5218277393129505462, guid: d5b0a8dbb68f3955795ba305cbe94b48, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07971454
+      value: -1.48
       objectReference: {fileID: 0}
     - target: {fileID: 5218277393129505462, guid: d5b0a8dbb68f3955795ba305cbe94b48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.004582405
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 5218277393129505462, guid: d5b0a8dbb68f3955795ba305cbe94b48, type: 3}
       propertyPath: m_LocalPosition.z
@@ -584,7 +588,7 @@ Transform:
   m_GameObject: {fileID: 1648175803}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1646, y: 3.1182, z: 0}
+  m_LocalPosition: {x: 0.15, y: 1.14, z: 0}
   m_LocalScale: {x: 6.038468, y: 0.6618574, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -770,7 +774,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -948,7 +952,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1806200889}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -991,7 +995,7 @@ Transform:
   m_GameObject: {fileID: 1903360558}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.87, y: 3.12, z: 0}
+  m_LocalPosition: {x: -5.38, y: 1.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
