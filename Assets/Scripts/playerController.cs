@@ -68,7 +68,7 @@ public class playerController : MonoBehaviour
     {
         gameController gc = FindObjectOfType<gameController>();
         
-        if(collision.gameObject.tag == "DeathZone"){
+        if(collision.gameObject.tag == "DeathZone" || collision.gameObject.tag == "Obstacle"){
             // Teleport player back to last checkpoint
             if (gc != null)
             {
@@ -81,22 +81,6 @@ public class playerController : MonoBehaviour
             }
             
         }
-
-        if(collision.gameObject.tag == "Obstacle"){
-            // Teleport player back to last checkpoint
-            if (gc != null)
-            {
-                gc.telportToLastCheckpoint();
-                Debug.Log("teleporting...!");
-            }
-            else
-            {
-                Debug.Log("gc not found!");
-            }
-            
-        }
-
-
         
     }
 }
