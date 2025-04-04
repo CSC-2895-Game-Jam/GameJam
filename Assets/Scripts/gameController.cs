@@ -59,12 +59,12 @@ public class gameController : MonoBehaviour
         }
         if (playerTransform == null)
         {
-            Debug.Log("Player not found!");
+            Debug.Log("PlayerTransform not found!");
 
         }
         if (checkpointTransform == null)
         {
-            Debug.Log("Checkpoint not found!");
+            Debug.Log("CheckpointTransform not found!");
 
         }
     }

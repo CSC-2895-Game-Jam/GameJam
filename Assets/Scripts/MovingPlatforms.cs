@@ -11,14 +11,14 @@ public class MovingPlatforms : MonoBehaviour
     private int i;
     void Start()
     {
-        transform.position points[startingPoint].position;
+        //transform.position points[startingPoint].position;
     }
     void Update()
     {
         if (Vector2.Distance(transform.position, points[i].position) < 0.02f)
         {
             i++;
-            if (i)
+            //if (i)
         }
     }
 }

@@ -24,7 +24,7 @@ public class MenuHandler : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
     }
     public void goToGame(){
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Framework");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("DaronScene");
     }
 
 
