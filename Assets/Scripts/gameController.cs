@@ -53,6 +53,7 @@ public class gameController : MonoBehaviour
         if (playerTransform != null && checkpointTransform != null)
         {
             playerTransform.position = checkpointTransform.position;
+            playerTransform.rotation = checkpoint.GetComponent<checkpoint>().getNewPlayerRotation();
             playerRB.velocity = Vector2.zero;
             Debug.Log("Trying to teleport");
 
