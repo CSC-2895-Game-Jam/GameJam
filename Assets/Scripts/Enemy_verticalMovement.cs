@@ -7,8 +7,11 @@ public class Enemy_verticalMovement : MonoBehaviour
 {
 
     public float speed = 3f;
+    public float minValue = 12f;
+    public float maxValue = 15f;
     private bool movingDown = true;
     private bool isPaused = false;
+    public float randomFloat;
 
     private Rigidbody2D rb;
 
@@ -23,13 +26,14 @@ public class Enemy_verticalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        randomFloat = Random.Range(minValue, maxValue);
         Vector2 movement;
         if (!isPaused)
         {
             if (movingDown)
             {
                 movement = Vector2.down;
-                transform.Translate(movement * speed * Time.deltaTime);
+                transform.Translate(movement * randomFloat * Time.deltaTime);
             }
             else
             {
@@ -57,7 +61,7 @@ public class Enemy_verticalMovement : MonoBehaviour
     {
         isPaused = true;
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
 
         movingDown = !movingDown;
