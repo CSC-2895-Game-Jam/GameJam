@@ -15,9 +15,7 @@ public class Disappearing_Platform : MonoBehaviour
     private bool IsFading = true;
     private float FadeDuration = 4.0f;
 
-    public Collider2D platformCollider;
 
-    public Collider2D platformCollider2;
 
     private SpriteRenderer platformRenderer;
 
