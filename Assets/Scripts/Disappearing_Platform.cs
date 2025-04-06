@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//disappearing platform with fade effect, but player can still use the platform. 
 public class Disappearing_Platform : MonoBehaviour
 {
 
@@ -11,19 +13,23 @@ public class Disappearing_Platform : MonoBehaviour
     private float InitialDelay = 2f;
 
     private bool IsFading = true;
-    private float FadeDuration = 5.0f;
+    private float FadeDuration = 4.0f;
 
-    private Collider2D platformCollider;
+    public Collider2D platformCollider;
+
+    public Collider2D platformCollider2;
+
     private SpriteRenderer platformRenderer;
 
-    private bool IsActive = true; 
+    private bool IsActive = true;
 
-
+   
 
     void Start()
     {
-        platformCollider = GetComponent<Collider2D>();
-        platformRenderer = GetComponent<SpriteRenderer>();
+        
+        
+    platformRenderer = GetComponent<SpriteRenderer>();
 
         StartCoroutine(PlatformCycle());
     }
@@ -38,7 +44,7 @@ public class Disappearing_Platform : MonoBehaviour
         while (true)
         {
             IsActive = true;
-            platformCollider.enabled = true;
+           
 
             if (IsFading)
             {
@@ -62,7 +68,7 @@ public class Disappearing_Platform : MonoBehaviour
             }
             
 
-            platformCollider.enabled = false;
+       
 
             // pause corotine execution 
             yield return new WaitForSeconds(InvisibleTime);
