@@ -9,9 +9,9 @@ public class checkpoint : MonoBehaviour
 
     public String platformColor;
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.tag == "Player")
         {
             gameController gc = FindObjectOfType<gameController>();
             if (gc != null)
@@ -25,9 +25,6 @@ public class checkpoint : MonoBehaviour
 
                 Debug.Log("gameController not found!");
             }
-        }
-        else {
-            Debug.Log("player tag not found!");
         }
 
     }

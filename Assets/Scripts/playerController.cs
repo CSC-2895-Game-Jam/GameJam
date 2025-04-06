@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -14,11 +15,18 @@ public class playerController : MonoBehaviour
     private float sprintMultiplier = 2f;
     public float _jumpForce = 10f;
 
-
+    private gameController gc;
+    private BackgroundBehavior backgroundBehavior;
     private Vector2 _moveDir = Vector2.zero;
 
 
     private bool allowJump = true;
+
+    private void Start()
+    {
+        gc = FindObjectOfType<gameController>();
+        backgroundBehavior = FindObjectOfType<BackgroundBehavior>();
+    }
 
     private void Update()
     {
@@ -60,15 +68,15 @@ public class playerController : MonoBehaviour
         _rb.velocity = new Vector2(_moveDir.normalized.x * finalMoveSpeed, _rb.velocity.y);
     }
 
-    public void setAllowJump(bool jump){
+    public void setAllowJump(bool jump)
+    {
         allowJump = jump;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        gameController gc = FindObjectOfType<gameController>();
-        
-        if(collision.gameObject.tag == "DeathZone" || collision.gameObject.tag == "Obstacle"){
+        if (collision.gameObject.tag == "DeathZone" || collision.gameObject.tag == "Obstacle")
+        {
             // Teleport player back to last checkpoint
             if (gc != null)
             {
@@ -79,8 +87,8 @@ public class playerController : MonoBehaviour
             {
                 Debug.Log("gc not found!");
             }
-            
+
         }
-        
+
     }
 }

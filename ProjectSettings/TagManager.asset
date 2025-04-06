@@ -12,6 +12,8 @@ TagManager:
   - Spawn
   - DeathZone
   - Obstacle
+  - BGRight
+  - BGLeft
   layers:
   - Default
   - TransparentFX
