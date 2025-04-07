@@ -98,6 +98,7 @@ public class gameController : MonoBehaviour
 
     private void UpdateFallsText()
     {
+        if (fallsText == null) return;
         fallsText.text = "Fails: " + ScoreSingleton.Instance.fallCount.ToString("000");
     }
 
