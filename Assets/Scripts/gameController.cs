@@ -16,7 +16,6 @@ public class gameController : MonoBehaviour
     public int currentCheckpoint = 0;
 
     public TextMeshProUGUI fallsText;
-    private int fallCount = 0;
 
     private bool isTeleporting = false; // make sure only one teleportation method call
 
@@ -57,9 +56,9 @@ public class gameController : MonoBehaviour
 
     public void telportToLastCheckpoint()
     {
-     //   if (isTeleporting) {
-     //       return; //Ignore if teleporting
-     //   }
+       if (isTeleporting) {
+           return; //Ignore if teleporting
+       }
 
         isTeleporting = true;
 
@@ -71,7 +70,7 @@ public class gameController : MonoBehaviour
             Debug.Log("Trying to teleport");
 
             //Increment fall counter and update GUI
-            fallCount++;
+            ScoreSingleton.Instance.fallCount++;
             UpdateFallsText();
 
             StartCoroutine(resetTeleporting());
@@ -99,7 +98,7 @@ public class gameController : MonoBehaviour
 
     private void UpdateFallsText()
     {
-        fallsText.text = "Fails: " + fallCount.ToString("000");
+        fallsText.text = "Fails: " + ScoreSingleton.Instance.fallCount.ToString("000");
     }
 
 }
