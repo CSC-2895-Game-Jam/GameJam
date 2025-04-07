@@ -22,6 +22,8 @@ public class playerController : MonoBehaviour
 
     private bool allowJump = true;
 
+    public CoinManager coinManager;
+
     private void Start()
     {
         gc = FindObjectOfType<gameController>();
@@ -81,14 +83,18 @@ public class playerController : MonoBehaviour
             if (gc != null)
             {
                 gc.telportToLastCheckpoint();
+                coinManager.coinCount = 0;
                 Debug.Log("teleporting...!");
             }
             else
             {
                 Debug.Log("gc not found!");
             }
-
         }
-
-    }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            coinManager.coinCount++;
+        }
+    } 
 }
