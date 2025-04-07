@@ -9,21 +9,22 @@ public class checkpoint : MonoBehaviour
 
     public String platformColor;
 
+    //Late Activation 
+    public bool useDelayedActivation = false;
+
+    private bool playerOnCheckpoint = false;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player")
         {
-            gameController gc = FindObjectOfType<gameController>();
-            if (gc != null)
-            {
-                gc.SetCheckpoint(gameObject, theCheckpoint);
-                Debug.Log("Checkpoint Changed");
+            if (useDelayedActivation) { 
+            playerOnCheckpoint = true;
+                StartCoroutine(delayedCheckpoint());
             }
-
-            if (gc == null)
+            else
             {
-
-                Debug.Log("gameController not found!");
+                activateCheckpoint();
             }
         }
 
@@ -42,4 +43,54 @@ public class checkpoint : MonoBehaviour
 
         return Quaternion.Euler(0, 0, rot);
     }
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            playerOnCheckpoint = false;
+        }
+    }
+
+    private IEnumerator delayedCheckpoint()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (playerOnCheckpoint)
+        {
+            activateCheckpoint();
+        }
+        else
+        {
+            Debug.Log("Player elft checkpoint before activation");
+        }
+    }
+
+
+    private void activateCheckpoint()
+    {
+        gameController gc = FindObjectOfType<gameController>();
+        if (gc != null)
+        {
+            gc.SetCheckpoint(gameObject, theCheckpoint);
+            Debug.Log("Checkpoint Changed");
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                Color c = sr.color;
+                c.a = 0f;
+                sr.color = c;
+            }
+
+        }
+
+        if (gc == null)
+        {
+
+            Debug.Log("gameController not found!");
+        }
+    }
+
+
+
 }
