@@ -57,9 +57,9 @@ public class gameController : MonoBehaviour
 
     public void telportToLastCheckpoint()
     {
-        if (isTeleporting) {
-            return; //Ignore if teleporting
-        }
+     //   if (isTeleporting) {
+     //       return; //Ignore if teleporting
+     //   }
 
         isTeleporting = true;
 
