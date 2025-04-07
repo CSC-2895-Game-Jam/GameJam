@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Blink_DisapearPlatform : MonoBehaviour
 {
-    private float visibleTime = 1.3f;
+    private float visibleTime = 1.8f;
     private float invisibleTime = 1f;
     private float initialDelay = 2f;
 
