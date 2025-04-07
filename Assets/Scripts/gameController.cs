@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class gameController : MonoBehaviour
@@ -13,6 +14,13 @@ public class gameController : MonoBehaviour
     private Rigidbody2D playerRB;
 
     public int currentCheckpoint = 0;
+
+    public TextMeshProUGUI fallsText;
+    private int fallCount = 0;
+
+    private bool isTeleporting = false; // make sure only one teleportation method call
+
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag(playerTag);
@@ -49,6 +57,11 @@ public class gameController : MonoBehaviour
 
     public void telportToLastCheckpoint()
     {
+        if (isTeleporting) {
+            return; //Ignore if teleporting
+        }
+
+        isTeleporting = true;
 
         if (playerTransform != null && checkpointTransform != null)
         {
@@ -56,6 +69,12 @@ public class gameController : MonoBehaviour
             playerTransform.rotation = checkpoint.GetComponent<checkpoint>().getNewPlayerRotation();
             playerRB.velocity = Vector2.zero;
             Debug.Log("Trying to teleport");
+
+            //Increment fall counter and update GUI
+            fallCount++;
+            UpdateFallsText();
+
+            StartCoroutine(resetTeleporting());
 
         }
         if (playerTransform == null)
@@ -69,4 +88,18 @@ public class gameController : MonoBehaviour
 
         }
     }
+
+
+    private IEnumerator resetTeleporting()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isTeleporting = false;
+    }
+
+
+    private void UpdateFallsText()
+    {
+        fallsText.text = "Fails: " + fallCount.ToString("000");
+    }
+
 }
