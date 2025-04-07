@@ -15,6 +15,7 @@ TagManager:
   - BGRight
   - BGLeft
   - Coin
+  - Wall
   layers:
   - Default
   - TransparentFX

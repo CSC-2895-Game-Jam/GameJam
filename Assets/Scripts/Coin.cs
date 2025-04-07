@@ -5,21 +5,39 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     private bool _collected = false;
+    private int collection = 1;
 
-    private void OnTriggerEnter(Collider other)
+
+    private Collider2D _collider;
+
+    private void Awake()
     {
-        if (!_collected && other.CompareTag("Player"))
-        {
-            _collected = true;
-            CoinManager.instance.coinCount++;
-            StartCoroutine(DestroyAfterFrame());
-        }
+        _collider = GetComponent<Collider2D>();
     }
 
-    private IEnumerator DestroyAfterFrame()
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Coin destroyed next frame.");
-        yield return new WaitForEndOfFrame();
+       if (_collected) { return;}
+
+        if (other.CompareTag("Player"))
+        {
+            _collected = true;
+            _collider.enabled = false; // stops more triggers
+            Debug.Log("Collection2: " + collection);
+            StartCoroutine(coinCollectionHandler());
+        }
+        
+    }
+
+    private IEnumerator coinCollectionHandler()
+    {
+        yield return new WaitForSeconds(0.1f);
+        Debug.Log("Collection: " + collection);
+        CoinManager.instance.coinCount +=  collection;
+        collection -= 1;
+        Debug.Log("Collection2: " + collection);
+
         Destroy(gameObject);
     }
 }

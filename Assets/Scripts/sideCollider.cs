@@ -18,7 +18,7 @@ public class sideCollider : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag != color && collision.gameObject.tag != "Platform")
+        if (collision.gameObject.tag != color && collision.gameObject.tag != "Platform" && collision.gameObject.tag != "Wall")
         {
             // Player falls through
             Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());

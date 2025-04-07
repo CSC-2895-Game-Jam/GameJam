@@ -91,10 +91,6 @@ public class playerController : MonoBehaviour
                 Debug.Log("gc not found!");
             }
         }
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            Destroy(collision.gameObject);
-            coinManager.coinCount++;
-        }
+       //coin adding deleted 
     } 
 }
