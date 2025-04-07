@@ -34,7 +34,7 @@ public class Coin : MonoBehaviour
     {
         yield return new WaitForSeconds(0.1f);
         Debug.Log("Collection: " + collection);
-        CoinManager.instance.coinCount +=  collection;
+        ScoreSingleton.Instance.coinCount +=  collection;
         collection -= 1;
         Debug.Log("Collection2: " + collection);
 
