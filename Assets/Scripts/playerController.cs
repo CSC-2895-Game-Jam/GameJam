@@ -24,6 +24,11 @@ public class playerController : MonoBehaviour
 
     public CoinManager coinManager;
 
+    public AudioClip jumpSound;
+
+    public AudioSource audioSource; 
+    
+
     private void Start()
     {
         gc = FindObjectOfType<gameController>();
@@ -53,6 +58,7 @@ public class playerController : MonoBehaviour
 
         if (jumpInput && allowJump)
         {
+            audioSource.PlayOneShot(jumpSound); 
             _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
         }
     }
