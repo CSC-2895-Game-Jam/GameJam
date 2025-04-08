@@ -127,7 +127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5218277393129505462
 Transform:
   m_ObjectHideFlags: 0
@@ -184,8 +184,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 958896845
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.4939561, g: 0, b: 1, a: 1}
@@ -214,6 +214,10 @@ MonoBehaviour:
   _rb: {fileID: 4651673740300746322}
   _moveSpeed: 5
   _jumpForce: 10
+  coinManager: {fileID: 0}
+  jumpSound: {fileID: 0}
+  audioSource: {fileID: 0}
+  currentSide: 
 --- !u!50 &4651673740300746322
 Rigidbody2D:
   serializedVersion: 4
