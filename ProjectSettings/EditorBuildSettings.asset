@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/DaronScene.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/MainMenu.unity
+    guid: 276bb740a6f290e418d0e3410bb36441
+  - enabled: 1
+    path: Assets/Scenes/JakeScene.unity
+    guid: 35d2dd59d8d315955a9528ad6e9c5674
+  - enabled: 1
+    path: Assets/Scenes/KateScene.unity
+    guid: 3e9ce20a7b50e1843a5b3987c0c6a185
   - enabled: 1
     path: Assets/Scenes/LaythScene.unity
     guid: 00aaaf801daf071408d66491594e3976
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 276bb740a6f290e418d0e3410bb36441
+    path: Assets/Scenes/DaronScene.unity
+    guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 34c160dd336584b94a549f3c9944ee04
   m_configObjects: {}
