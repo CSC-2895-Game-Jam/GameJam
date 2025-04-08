@@ -4537,6 +4537,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9134647242829924835, guid: 5cfcc77929ac64df2baaf7deeca22fd1, type: 3}
   m_PrefabInstance: {fileID: 1036090897}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1058199920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7879285009797577606, guid: 5c0d75868cabffc458a0ca936f315103, type: 3}
+  m_PrefabInstance: {fileID: 1114503857}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1069844134 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9134647242829924835, guid: 5cfcc77929ac64df2baaf7deeca22fd1, type: 3}
@@ -4686,6 +4691,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1089264611213727050, guid: 5c0d75868cabffc458a0ca936f315103, type: 3}
+      propertyPath: coinManager
+      value: 
+      objectReference: {fileID: 443969826}
     - target: {fileID: 2785073671865187345, guid: 5c0d75868cabffc458a0ca936f315103, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.8266435
@@ -4728,7 +4737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7879285009797577606, guid: 5c0d75868cabffc458a0ca936f315103, type: 3}
       propertyPath: m_Name
-      value: playerPrefab 1
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10143,7 +10152,7 @@ PrefabInstance:
     - target: {fileID: 2061428990696810742, guid: 938f5930489c67a89bb1cc36cce5fd84, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1058199920}
     - target: {fileID: 3225275064390533396, guid: 938f5930489c67a89bb1cc36cce5fd84, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -10216,6 +10225,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1019991696}
   - {fileID: 6733108497714115642}
+  - {fileID: 1114503857}
   - {fileID: 481421854}
   - {fileID: 1846370173}
   - {fileID: 1720921647}
@@ -10297,4 +10307,3 @@ SceneRoots:
   - {fileID: 443969824}
   - {fileID: 1338477461}
   - {fileID: 206199358}
-  - {fileID: 1114503857}
