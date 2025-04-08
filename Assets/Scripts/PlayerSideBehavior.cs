@@ -20,7 +20,7 @@ public class sideCollider : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(color) || collision.gameObject.CompareTag("Platform"))
         {
-            if(player.getCurrentSide() != color) {
+            if(player.getCurrentSide() != color && !collision.gameObject.CompareTag("Platform")) {
                 player.setAllowJump(false);
                 return;
             };
