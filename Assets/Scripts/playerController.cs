@@ -26,8 +26,11 @@ public class playerController : MonoBehaviour
 
     public AudioClip jumpSound;
 
-    public AudioSource audioSource; 
-    
+    public AudioSource audioSource;
+
+    private bool jumpInput;
+    public string currentSide;
+
 
     private void Start()
     {
@@ -37,30 +40,19 @@ public class playerController : MonoBehaviour
 
     private void Update()
     {
-        //Rotation
-        float HorizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
+        // Handle input in Update
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
+        _moveDir.x = horizontalInput;
 
-        if (!allowJump)
-        {
-            _rb.angularVelocity = 0f; // Reset angular velocity to ensure consistent rotation speed
-            transform.Rotate(Vector3.forward, -HorizontalInput * rotationSpeed * Time.deltaTime);
-        }
-
-        //Side to Side movement
-        _moveDir.x = HorizontalInput;
-
-        //Sprint check
-        _isSprinting = Input.GetKey(KeyCode.LeftShift);
+        _isSprinting = Input.GetKey(KeyCode.LeftShift); // Sprint check
         finalMoveSpeed = _isSprinting ? _moveSpeed * sprintMultiplier : _moveSpeed;
 
+        if(Input.GetButtonDown("Jump") && allowJump) jumpInput = true;
 
-        bool jumpInput = Input.GetKeyDown(KeyCode.Space);
-
-        if (jumpInput && allowJump)
-        {
-            audioSource.PlayOneShot(jumpSound); 
-            _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
-        }
+        float rotation = transform.rotation.z;
+        if(rotation < .60 && rotation > -.60) currentSide = "Blue";
+        if(rotation >= .60) currentSide = "Yellow";
+        if(rotation <= -.60) currentSide = "Red";
     }
 
 
@@ -74,6 +66,25 @@ public class playerController : MonoBehaviour
     {
 
         _rb.velocity = new Vector2(_moveDir.normalized.x * finalMoveSpeed, _rb.velocity.y);
+
+        //Rotation
+        float HorizontalInput = Input.GetAxisRaw("Horizontal"); // left/right arrow or A/D
+
+        if (!allowJump)
+        {
+            _rb.angularVelocity = 0f; // Reset angular velocity to ensure consistent rotation speed
+            transform.Rotate(Vector3.forward, -HorizontalInput * rotationSpeed * Time.deltaTime);
+        }
+
+        if (jumpInput) Jump();
+    }
+
+    private void Jump()
+    {
+        _rb.velocity = new Vector2(_rb.velocity.x, _jumpForce);
+        audioSource.PlayOneShot(jumpSound);
+        allowJump = false;
+        jumpInput = false;
     }
 
     public void setAllowJump(bool jump)
@@ -96,6 +107,10 @@ public class playerController : MonoBehaviour
                 Debug.Log("gc not found!");
             }
         }
-       //coin adding deleted 
-    } 
+        //coin adding deleted 
+    }
+
+    public string getCurrentSide(){
+        return currentSide;
+    }
 }
