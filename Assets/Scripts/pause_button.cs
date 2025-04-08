@@ -5,25 +5,27 @@ using UnityEngine;
 using UnityEngine.UI;
 public class pause_button : MonoBehaviour
 {
-    public Sprite normalSprite;  
-    public Sprite clickedSprite;  
-    private Image buttonImage;     
+   
 
-    void Start()
+  public void MuteALL()
     {
-        buttonImage = GetComponent<Image>();
-        buttonImage.sprite = normalSprite;
+        AudioSource[] allAudio = FindObjectsOfType<AudioSource>();
+
+        foreach( AudioSource audiosource in allAudio)
+        {
+            audiosource.mute = true; 
+        }
     }
 
-    public void OnButtonClick()
+    public void UnMuteALL()
     {
-        // Change sprite when clicked
-        buttonImage.sprite = clickedSprite;
+        AudioSource[] allAudio = FindObjectsOfType<AudioSource>();
 
-        
+        foreach (AudioSource audiosource in allAudio)
+        {
+            audiosource.mute = false;
+        }
     }
-
-  
 }
 
 

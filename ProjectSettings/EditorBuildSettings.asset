@@ -9,11 +9,19 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 276bb740a6f290e418d0e3410bb36441
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/JakeScene.unity
     guid: 35d2dd59d8d315955a9528ad6e9c5674
   - enabled: 1
     path: Assets/Scenes/KateScene.unity
     guid: 3e9ce20a7b50e1843a5b3987c0c6a185
+=======
+    path: Assets/Scenes/KateScene.unity
+    guid: 3e9ce20a7b50e1843a5b3987c0c6a185
+  - enabled: 1
+    path: Assets/Scenes/JakeScene.unity
+    guid: 35d2dd59d8d315955a9528ad6e9c5674
+>>>>>>> Stashed changes
   - enabled: 1
     path: Assets/Scenes/LaythScene.unity
     guid: 00aaaf801daf071408d66491594e3976
