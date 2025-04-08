@@ -89,7 +89,6 @@ public class playerController : MonoBehaviour
             if (gc != null)
             {
                 gc.telportToLastCheckpoint();
-                ScoreSingleton.Instance.coinCount = 0;
                 Debug.Log("teleporting...!");
             }
             else
