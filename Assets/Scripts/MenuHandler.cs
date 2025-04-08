@@ -21,7 +21,7 @@ public class MenuHandler : MonoBehaviour
 
 
     public void goToMenu(){
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Main Menu");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
     public void goToGame(){
         UnityEngine.SceneManagement.SceneManager.LoadScene("KateScene");
