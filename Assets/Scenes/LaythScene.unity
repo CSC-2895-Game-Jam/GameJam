@@ -2644,7 +2644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
-  startingPoint: 12
+  startingPoint: 1
   points:
   - {fileID: 1492439111}
   - {fileID: 986055759}
